@@ -125,7 +125,7 @@ def _generate_task_1_files(metadata, predictions, output_folder, task1_dir, clas
         fname = fname.split("/")[-1][:-4]
         fname_set.add(fname)
         corners = prediction["corners"]
-        assert prediction["height"] == prediction["width"]
+        #assert prediction["height"] == prediction["width"]
 
         labels = prediction["labels"]
         scores = prediction["scores"]
