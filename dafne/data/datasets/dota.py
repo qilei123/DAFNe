@@ -380,6 +380,20 @@ def _make_datasets_dict():
                     "is_test": "test" in name,
                 }
 
+    datasets_dict["trans_drone_wide_train_1024"] = {
+        "root_dir": root_dir,
+        "img_dir": "images",
+        "ann_file": ann_file,
+        "is_test": "val" in name,
+    }    
+
+    datasets_dict["trans_drone_wide_val_1024"] = {
+        "root_dir": root_dir,
+        "img_dir": "images",
+        "ann_file": ann_file,
+        "is_test": "val" in name,
+    } 
+
     return datasets_dict
 
 
