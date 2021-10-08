@@ -320,7 +320,7 @@ Category ids in annotations are not in [1, #categories]! We'll apply a mapping f
     return dataset_dicts
 
 
-def register_dota_instances(name, metadata, json_file, image_root, cfg):
+def register_trans_drone_instances(name, metadata, json_file, image_root, cfg):
     """
     Register a dataset in COCO's json annotation format for
     instance detection, instance segmentation and keypoint detection.
@@ -360,40 +360,38 @@ def register_dota_instances(name, metadata, json_file, image_root, cfg):
 
 
 def _make_datasets_dict():
-    ds_name_template = "dota_{version}_{split}_{size}"
-    root_dir_template = "dota_{version}_split/{split}{size}"
-    ann_file_template = "DOTA{version}_{split}{size}.json"
 
     datasets_dict = {}
     # Construct datasets dict from currently available datasets
-    for version in ["1", "1_5"]:
-        for split in ["train", "val", "test"]:
-            for size in ["600", "800", "1024", "1300", "1600", "2048"]:
-                name = ds_name_template.format(version=version, split=split, size=size)
-                root_dir = root_dir_template.format(version=version, split=split, size=size)
-                ann_file = ann_file_template.format(version=version, split=split, size=size)
 
-                datasets_dict[name] = {
-                    "root_dir": root_dir,
-                    "img_dir": "images",
-                    "ann_file": ann_file,
-                    "is_test": "test" in name,
-                }
+    datasets_dict["trans_drone_wide_train"] = {
+        "root_dir": "",
+        "img_dir": "images",
+        "ann_file": "annotations/train_wide.json",
+        "is_test": False,
+    }    
+
+    datasets_dict["trans_drone_wide_val"] = {
+        "root_dir": "",
+        "img_dir": "images",
+        "ann_file": "annotations/test_wide.json",
+        "is_test": True,
+    } 
 
     return datasets_dict
 
 
-def register_dota(cfg):
+def register_trans_drone(cfg):
     """Setup method to register the dota dataset."""
     datasets_dict = _make_datasets_dict()
 
     # Get the data directory
-    data_dir = os.environ["DAFNE_DATA_DIR"]
+    data_dir = cfg.DATASETS.DATA_DIR
     colors = colormap(rgb=True, maximum=255)
     for dataset_name, d in datasets_dict.items():
 
         def reg(name):
-            register_dota_instances(
+            register_trans_drone_instances(
                 name=name,
                 metadata={
                     "is_test": d["is_test"],

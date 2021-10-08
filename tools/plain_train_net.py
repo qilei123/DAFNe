@@ -80,6 +80,9 @@ from detectron2.utils.logger import setup_logger
 from dafne.config import get_cfg
 from dafne.data.datasets.dota import register_dota
 from dafne.evaluation.dota_evaluation import DotaEvaluator
+
+from dafne.data.datasets.trans_drone import register_trans_drone
+
 from dafne.modeling.tta import OneStageRCNNWithTTA
 from dafne.utils.mail import send_mail_error, send_mail_success
 from dafne.utils.rtpt import RTPT
@@ -567,6 +570,7 @@ def main(args):
     # Register the datasets
     register_dota(cfg)
     register_hrsc(cfg)
+    register_trans_drone(cfg)
 
     model = build_model(cfg)
 
