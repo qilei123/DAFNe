@@ -364,17 +364,17 @@ def _make_datasets_dict():
     datasets_dict = {}
     # Construct datasets dict from currently available datasets
 
-    datasets_dict["trans_drone_wide_train"] = {
+    datasets_dict["trans_drone_train_mix"] = {
         "root_dir": "",
         "img_dir": "images",
-        "ann_file": "annotations/train_wide.json",
+        "ann_file": "annotations/train_mix.json",
         "is_test": False,
     }    
 
-    datasets_dict["trans_drone_wide_val"] = {
+    datasets_dict["trans_drone_test_mix"] = {
         "root_dir": "",
         "img_dir": "images",
-        "ann_file": "annotations/test_wide.json",
+        "ann_file": "annotations/test_mix.json",
         "is_test": True,
     } 
 
