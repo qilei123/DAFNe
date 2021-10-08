@@ -80,7 +80,7 @@ from detectron2.utils.logger import setup_logger
 from dafne.config import get_cfg
 from dafne.data.datasets.dota import register_dota
 from dafne.evaluation.dota_evaluation import DotaEvaluator
-
+from dafne.evaluation.trans_drone_evaluation import TransdroneEvaluator
 from dafne.data.datasets.trans_drone import register_trans_drone
 
 from dafne.modeling.tta import OneStageRCNNWithTTA
@@ -204,6 +204,13 @@ def get_evaluator(cfg, dataset_name, output_folder=None):
         )
     elif "hrsc" in dataset_name.lower():
         evaluator = HrscEvaluator(
+            dataset_name=dataset_name,
+            cfg=cfg,
+            distributed=True,
+            output_dir=output_folder,
+        )
+    elif "trans_drone" in dataset_name.lower():
+        evaluator = TransdroneEvaluator(
             dataset_name=dataset_name,
             cfg=cfg,
             distributed=True,
