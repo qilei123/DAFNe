@@ -204,6 +204,7 @@ def mergesingle(dstpath, nms, fullname):
                     temp_splitline.append(splitline[i])
                 temp_splitlines.append(temp_splitline)
             splitlines = temp_splitlines
+        print(splitlines)
         for splitline in splitlines:
             subname = splitline[0]
             splitname = subname.split('__')
@@ -244,8 +245,6 @@ def mergebase_parallel(srcpath, dstpath, nms):
 
     mergesingle_fn = partial(mergesingle, dstpath, nms)
     # pdb.set_trace()
-    print(dstpath)
-    print(filelist)
     pool.map(mergesingle_fn, filelist)
 
 def mergebase(srcpath, dstpath, nms):
