@@ -1,7 +1,8 @@
 _BASE_: "../dota-1.5/600.yaml"
 
 DATASETS:
-  DATA_DIR: "/home/qilei/DATASETS/trans_drone/"
+  #DATA_DIR: "/home/qilei/DATASETS/trans_drone/"
+  DATA_DIR: "/data2/qilei_chen/DATA/trans_drone"
   TRAIN: ("trans_drone_wide_train",)
   TEST: ("trans_drone_wide_val",)
 
