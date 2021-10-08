@@ -317,21 +317,9 @@ def do_trans_drone_evaluation(
 
     # For DOTA-v1.0
     classnames = [
-        "plane",
-        "baseball-diamond",
-        "bridge",
-        "ground-track-field",
-        "small-vehicle",
-        "large-vehicle",
-        "ship",
-        "tennis-court",
-        "basketball-court",
-        "storage-tank",
-        "soccer-ball-field",
-        "roundabout",
-        "harbor",
-        "swimming-pool",
-        "helicopter",
+        "Small 1-piece vehicle",
+        "Large 1-piece vehicle",
+        "Extra-large 2-piece truck",
     ]
 
     # For DOTA-v1.5
