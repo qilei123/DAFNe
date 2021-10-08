@@ -32,3 +32,5 @@ TEST:
     MIN_SIZES: (256, 512, 756, 1024, 1536)
     MAX_SIZE: 1536
     FLIP: True
+
+OUTPUT_DIR: /data2/qilei_chen/DATA/trans_drone/DAFNe/1024output
