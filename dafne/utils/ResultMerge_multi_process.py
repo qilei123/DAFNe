@@ -228,7 +228,7 @@ def mergebase_parallel(srcpath, dstpath, nms):
 
     mergesingle_fn = partial(mergesingle, dstpath, nms)
     # pdb.set_trace()
-    print(mergesingle_fn)
+    print(dstpath)
     print(filelist)
     pool.map(mergesingle_fn, filelist)
 
