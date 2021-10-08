@@ -23,9 +23,9 @@ from detectron2.data import DatasetCatalog, MetadataCatalog
 from .dafne_evaluator import DafneEvaluator
 
 
-class DotaEvaluator(DafneEvaluator):
+class TransdroneEvaluator(DafneEvaluator):
     def _eval_predictions(self, predictions):
-        do_dota_evaluation(
+        do_trans_drone_evaluation(
             dataset_name=self._dataset_name,
             metadata=self._metadata,
             predictions=predictions,
@@ -305,7 +305,7 @@ def make_sample_plots(metadata, dataset_name, predictions, output_dir, conf_thre
             break
 
 
-def do_dota_evaluation(
+def do_trans_drone_evaluation(
     dataset_name,
     metadata,
     predictions: dict,

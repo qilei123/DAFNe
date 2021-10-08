@@ -4,7 +4,7 @@ DATASETS:
   DATA_DIR: "/home/qilei/DATASETS/trans_drone/"
   #DATA_DIR: "/data2/qilei_chen/DATA/trans_drone"
   TRAIN: ("trans_drone_train_mix",)
-  TEST: ("trans_drone_val_mix",)
+  TEST: ("trans_drone_test_mix",)
 
 INPUT:
   MIN_SIZE_TRAIN: (1024,)
