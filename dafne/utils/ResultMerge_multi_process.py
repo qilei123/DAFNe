@@ -193,7 +193,7 @@ def mergesingle(dstpath, nms, fullname):
             temp_splitlines = []
             for splitline in splitlines:
                 temp_splitline = []
-                out_len = len(splitlines[0])-10
+                out_len = len(splitlines[0])-9
                 temp_filename = ''
                 for i in range(out_len):
                     temp_filename+=splitline[i]
@@ -210,7 +210,7 @@ def mergesingle(dstpath, nms, fullname):
             splitname = subname.split('__')
             oriname = splitname[0]
             pattern1 = re.compile(r'__\d+___\d+')
-            #print('subname:', subname)
+            print('subname:', subname)
             x_y = re.findall(pattern1, subname)
             x_y_2 = re.findall(r'\d+', x_y[0])
             x, y = int(x_y_2[0]), int(x_y_2[1])
