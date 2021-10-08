@@ -188,6 +188,22 @@ def mergesingle(dstpath, nms, fullname):
         nameboxdict = {}
         lines = f_in.readlines()
         splitlines = [x.strip().split(' ') for x in lines]
+        
+        if len(splitlines[0])>10:
+            temp_splitlines = []
+            for splitline in splitlines:
+                temp_splitline = []
+                out_len = len(splitlines[0])-10
+                temp_filename = ''
+                for i in range(out_len):
+                    temp_filename+=splitline[i]
+                    temp_filename+=' '
+                temp_filename+=splitline[out_len]
+                temp_splitline.append(temp_filename)
+                for i in range(out_len+1,len(splitlines[0])):
+                    temp_splitline.append(splitline[i])
+                temp_splitlines.append(temp_splitline)
+            splitlines = temp_splitlines
         for splitline in splitlines:
             subname = splitline[0]
             splitname = subname.split('__')
