@@ -94,7 +94,7 @@ def parse_gt(filename):
                         name += splitlines[i]
                         name += ' '
                     name += splitlines[-2]
-
+                    object_struct["name"] = name
                 if len(splitlines) == 9:
                     object_struct["difficult"] = 0
                 elif len(splitlines) == 10:
