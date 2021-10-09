@@ -27,7 +27,7 @@ for imgId in imgIds:
                 line+=str(x_y)
                 line+=' '
             print(coco.loadCats(ann['category_id']))
-            line+=coco.loadCats(ann['category_id'])[0]
+            line+=coco.loadCats(ann['category_id'])[0]['name']
             line+=' '
             line+='0\n'
             file_holder.write(line)
