@@ -130,7 +130,14 @@ def voc_eval(
 
     # logger.info('check confidence: ', confidence)
 
-    BB = np.array([[float(z) for z in x[2:]] for x in splitlines])
+    #BB = np.array([[float(z) for z in x[2:]] for x in splitlines])
+    TBB = []
+    for x in splitlines:
+        if len(x[2:])!=9:
+            print(x)
+        TBB.append([float(z) for z in x[2:]])
+
+    BB = np.array(TBB)
 
     # sort by confidence
     sorted_ind = np.argsort(-confidence)
