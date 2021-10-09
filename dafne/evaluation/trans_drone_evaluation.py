@@ -91,6 +91,8 @@ def parse_gt(filename):
                     object_struct["difficult"] = 0
                 elif len(splitlines) == 10:
                     object_struct["difficult"] = int(splitlines[9])
+                else:
+                    object_struct["difficult"] = int(splitlines[-1])
                 object_struct["bbox"] = [
                     float(splitlines[0]),
                     float(splitlines[1]),
