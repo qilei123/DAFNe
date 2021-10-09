@@ -118,7 +118,7 @@ def voc_eval(
             temp_filename+=' '
         temp_filename+=splitline[out_len]
         temp_splitline.append(temp_filename)
-        for i in range(out_len+1,len(splitlines[0])):
+        for i in range(out_len+1,len(splitline)):
             temp_splitline.append(splitline[i])
         temp_splitlines.append(temp_splitline)
     
@@ -133,7 +133,7 @@ def voc_eval(
     #BB = np.array([[float(z) for z in x[2:]] for x in splitlines])
     TBB = []
     for x in splitlines:
-        if len(x[2:])!=9:
+        if len(x[2:])!=8:
             print(x)
         TBB.append([float(z) for z in x[2:]])
 
@@ -143,8 +143,8 @@ def voc_eval(
     sorted_ind = np.argsort(-confidence)
     sorted_scores = confidence[sorted_ind]
 
-    logger.info('check sorted_scores: ', sorted_scores)
-    logger.info('check sorted_ind: ', sorted_ind)
+    # logger.info('check sorted_scores: ', sorted_scores)
+    # logger.info('check sorted_ind: ', sorted_ind)
 
     ## note the usage only in numpy not for list
     if BB.shape[0] > 0:
