@@ -193,7 +193,7 @@ def mergesingle(dstpath, nms, fullname):
             temp_splitlines = []
             for splitline in splitlines:
                 temp_splitline = []
-                out_len = len(splitline)-9
+                out_len = len(splitline)-10
                 temp_filename = ''
                 for i in range(out_len):
                     temp_filename+=splitline[i]
