@@ -1,8 +1,10 @@
 import polyiou
 import numpy as np
 import torch
-
+import logging
 from dafne.utils.sort_corners import sort_quadrilateral
+
+logger = logging.getLogger(__name__)
 
 def voc_ap(rec, prec, use_07_metric=False):
     """ap = voc_ap(rec, prec, [use_07_metric])
@@ -134,8 +136,8 @@ def voc_eval(
     sorted_ind = np.argsort(-confidence)
     sorted_scores = confidence[sorted_ind]
 
-    # logger.info('check sorted_scores: ', sorted_scores)
-    # logger.info('check sorted_ind: ', sorted_ind)
+    logger.info('check sorted_scores: ', sorted_scores)
+    logger.info('check sorted_ind: ', sorted_ind)
 
     ## note the usage only in numpy not for list
     if BB.shape[0] > 0:
