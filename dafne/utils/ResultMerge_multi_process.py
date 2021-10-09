@@ -204,7 +204,7 @@ def mergesingle(dstpath, nms, fullname):
                     temp_splitline.append(splitline[i])
                 temp_splitlines.append(temp_splitline)
             splitlines = temp_splitlines
-        print(splitlines)
+
         for splitline in splitlines:
             subname = splitline[0]
             splitname = subname.split('__')
