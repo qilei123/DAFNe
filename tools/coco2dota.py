@@ -7,7 +7,7 @@ coco = COCO(annFile)
 
 imgIds = coco.getImgIds()
 
-save_folder_dir = "/home/qilei/DATASETS/trans_drone/annotations"
+save_folder_dir = "/home/qilei/DATASETS/trans_drone/"
 
 for imgId in imgIds:
     print(imgId)
