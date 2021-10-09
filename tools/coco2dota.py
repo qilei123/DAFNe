@@ -26,7 +26,7 @@ for imgId in imgIds:
             for x_y in ann['segmentation'][0]:
                 line+=str(x_y)
                 line+=' '
-            line+=coco.loadCats(ann['category_id'])
+            line+=coco.loadCats(ann['category_id'])[0]
             line+=' '
             line+='0\n'
             file_holder.write(line)
