@@ -85,7 +85,15 @@ def parse_gt(filename):
                 object_struct = {}
                 if len(splitlines) < 9:
                     continue
-                object_struct["name"] = splitlines[8]
+                
+                if len(splitlines) == 9:
+                    object_struct["name"] = splitlines[8]
+                else:
+                    name=''
+                    for i in range(8,len(splitlines)-2):
+                        name += splitlines[i]
+                        name += ' '
+                    name += splitlines[-2]
 
                 if len(splitlines) == 9:
                     object_struct["difficult"] = 0
@@ -317,16 +325,11 @@ def do_trans_drone_evaluation(
     cfg,
 ):
 
-    # For DOTA-v1.0
     classnames = [
         "Small 1-piece vehicle",
         "Large 1-piece vehicle",
         "Extra-large 2-piece truck",
     ]
-
-    # For DOTA-v1.5
-    if "1_5" in dataset_name and not cfg.DATASETS.DOTA_REMOVE_CONTAINER_CRANE:
-        classnames.append("container-crane")
 
     task1_dir = os.path.join(output_folder, "Task1")
     os.makedirs(task1_dir, exist_ok=True)
