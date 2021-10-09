@@ -375,7 +375,7 @@ def _make_datasets_dict():
         "root_dir": "",
         "img_dir": "images",
         "ann_file": "annotations/test_mix.json",
-        "is_test": True,
+        "is_test": False,
     } 
 
     return datasets_dict
