@@ -11,7 +11,7 @@ save_folder_dir = "/home/qilei/DATASETS/trans_drone/annotations"
 
 for imgId in imgIds:
     print(imgId)
-    img = coco.loadImgs(imgId)
+    img = coco.loadImgs(imgId)[0]
     print(img['file_name'])
     save_dir = os.path.join(save_folder_dir,"labelTxt",img['file_name'].replace("jpg","txt"))
     file_holder = open(save_dir,'w')
