@@ -188,7 +188,7 @@ def mergesingle(dstpath, nms, fullname):
         nameboxdict = {}
         lines = f_in.readlines()
         splitlines = [x.strip().split(' ') for x in lines]
-        
+        '''
         if len(splitlines[0])>10:
             temp_splitlines = []
             for splitline in splitlines:
@@ -204,15 +204,15 @@ def mergesingle(dstpath, nms, fullname):
                     temp_splitline.append(splitline[i])
                 temp_splitlines.append(temp_splitline)
             splitlines = temp_splitlines
-
+        '''
         for splitline in splitlines:
             subname = splitline[0]
             splitname = subname.split('__')
             oriname = splitname[0]
             pattern1 = re.compile(r'__\d+___\d+')
-            print('subname:', subname)
+            #print('subname:', subname)
             x_y = re.findall(pattern1, subname)
-            print(x_y)
+            #print(x_y)
             x_y_2 = re.findall(r'\d+', x_y[0])
             x, y = int(x_y_2[0]), int(x_y_2[1])
 
