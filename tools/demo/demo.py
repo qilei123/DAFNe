@@ -26,7 +26,7 @@ from detectron2.utils.visualizer import ColorMode, Visualizer, _create_text_labe
 
 
 from dafne.config import get_cfg
-
+'''
 classnames = [
     "plane",
     "baseball-diamond",
@@ -44,7 +44,12 @@ classnames = [
     "swimming-pool",
     "helicopter",
 ]
-
+'''
+classnames = [
+    "Small 1-piece vehicle",
+    "Large 1-piece vehicle",
+    "Extra-large 2-piece truck",
+]
 
 def setup_cfg(args):
     # load config from file and command-line arguments
