@@ -222,7 +222,7 @@ class OneStageRCNNWithTTA(nn.Module):
         Returns:
             dict: one output dict
         """
-        print("_inference_one_image")
+        #print("_inference_one_image")
         orig_shape = (input["height"], input["width"])
         augmented_inputs, tfms = self._get_augmented_inputs(input)
         instances = self._get_augmented_corners(augmented_inputs, tfms)

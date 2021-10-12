@@ -187,7 +187,7 @@ class VisualizationDemo(object):
             vis_output (VisImage): the visualized image output.
         """
         vis_output = None
-
+        
         predictions = self.predictor(image)
         print(predictions)   
         # Convert image from OpenCV BGR format to Matplotlib RGB format.
