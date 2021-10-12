@@ -229,17 +229,18 @@ if __name__ == "__main__":
     for path in tqdm.tqdm(args.input, disable=not args.output):
         # use PIL, to be consistent with evaluation
         img = read_image(path, format="BGR")
-        start_time = time.time()
-        predictions, visualized_output = demo.run_on_image(img)
-        logger.info(
-            "{}: {} in {:.2f}s".format(
-                path,
-                "detected {} instances".format(len(predictions["instances"]))
-                if "instances" in predictions
-                else "finished",
-                time.time() - start_time,
+        for i in range(20):
+            start_time = time.time()
+            predictions, visualized_output = demo.run_on_image(img)
+            logger.info(
+                "{}: {} in {:.2f}s".format(
+                    path,
+                    "detected {} instances".format(len(predictions["instances"]))
+                    if "instances" in predictions
+                    else "finished",
+                    time.time() - start_time,
+                )
             )
-        )
 
         if os.path.isdir(args.output):
             assert os.path.isdir(args.output), args.output
