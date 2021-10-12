@@ -26,7 +26,7 @@ def ml_nms(boxlist, nms_thresh, max_proposals=-1):
     polys = boxlist.pred_corners
     scores = boxlist.scores
     labels = boxlist.pred_classes
-    print(labels)
+    #print(labels)
     keep = batched_nms_poly(polys, scores, labels, nms_thresh)
     if max_proposals > 0:
         keep = keep[:max_proposals]
@@ -81,7 +81,7 @@ def batched_nms_poly(boxes, scores, idxs, iou_threshold):
 
     offsets = idxs.to(boxes) * (max_coordinate - min_coordinate + 1)
     boxes_for_nms = boxes.clone()  # avoid modifying the original values in boxes
-    boxes_for_nms[:, 0:8] += offsets[:, None]
+    #boxes_for_nms[:, 0:8] += offsets[:, None]
 
     # convert to numpy before calculate
     boxes_np = boxes_for_nms.data.cpu().numpy()
