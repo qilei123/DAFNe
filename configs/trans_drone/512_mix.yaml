@@ -36,8 +36,8 @@ TEST:
   NUM_PRED_VIS: 50
   AUG:
     ENABLED: False
-    MIN_SIZES: (128, 256, 512, 756, 1024)
-    MAX_SIZE: 1024
+    MIN_SIZES: (512,)
+    MAX_SIZE: 512
     FLIP: True
 
 #OUTPUT_DIR: /data2/qilei_chen/DATA/trans_drone/DAFNe/1024_output
