@@ -81,7 +81,7 @@ def batched_nms_poly(boxes, scores, idxs, iou_threshold, s_nms = False):
     offsets = idxs.to(boxes) * (max_coordinate - min_coordinate + 1)
     boxes_for_nms = boxes.clone()  # avoid modifying the original values in boxes
     # with offsets, nms can only be applied to categories seperately.
-    if not s_nms:
+    if s_nms:
         boxes_for_nms[:, 0:8] += offsets[:, None]
 
     # convert to numpy before calculate
