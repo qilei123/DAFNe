@@ -187,9 +187,10 @@ class VisualizationDemo(object):
             vis_output (VisImage): the visualized image output.
         """
         vis_output = None
-        start_time = time.time()
-        predictions = self.predictor(image)
-        print(time.time() - start_time)   
+        for i in range(20):
+            start_time = time.time()
+            predictions = self.predictor(image)
+            print(time.time() - start_time)   
         # Convert image from OpenCV BGR format to Matplotlib RGB format.
         image = image[:, :, ::-1]
         visualizer = Visualizer(image, self.metadata, instance_mode=self.instance_mode)
