@@ -7,7 +7,7 @@ from poly_nms import poly_gpu_nms
 from poly_overlaps import poly_overlaps
 
 
-def ml_nms(boxlist, nms_thresh, max_proposals=-1):
+def ml_nms(boxlist, nms_thresh, max_proposals=-1,s_nms = False):
     """
     Performs non-maximum suppression on a boxlist, with scores specified
     in a boxlist field via score_field.
@@ -26,8 +26,7 @@ def ml_nms(boxlist, nms_thresh, max_proposals=-1):
     polys = boxlist.pred_corners
     scores = boxlist.scores
     labels = boxlist.pred_classes
-    #print(labels)
-    keep = batched_nms_poly(polys, scores, labels, nms_thresh)
+    keep = batched_nms_poly(polys, scores, labels, nms_thresh, s_nms)
     if max_proposals > 0:
         keep = keep[:max_proposals]
     boxlist = boxlist[keep]
@@ -35,7 +34,7 @@ def ml_nms(boxlist, nms_thresh, max_proposals=-1):
 
 
 
-def batched_nms_poly(boxes, scores, idxs, iou_threshold):
+def batched_nms_poly(boxes, scores, idxs, iou_threshold, s_nms = False):
     """
     Performs non-maximum suppression in a batched fashion.
 
@@ -82,7 +81,8 @@ def batched_nms_poly(boxes, scores, idxs, iou_threshold):
     offsets = idxs.to(boxes) * (max_coordinate - min_coordinate + 1)
     boxes_for_nms = boxes.clone()  # avoid modifying the original values in boxes
     # with offsets, nms can only be applied to categories seperately.
-    boxes_for_nms[:, 0:8] += offsets[:, None]
+    if not s_nms:
+        boxes_for_nms[:, 0:8] += offsets[:, None]
 
     # convert to numpy before calculate
     boxes_np = boxes_for_nms.data.cpu().numpy()
