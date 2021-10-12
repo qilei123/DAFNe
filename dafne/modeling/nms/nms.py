@@ -26,6 +26,7 @@ def ml_nms(boxlist, nms_thresh, max_proposals=-1):
     polys = boxlist.pred_corners
     scores = boxlist.scores
     labels = boxlist.pred_classes
+    print(labels)
     keep = batched_nms_poly(polys, scores, labels, nms_thresh)
     if max_proposals > 0:
         keep = keep[:max_proposals]
