@@ -187,7 +187,7 @@ class VisualizationDemo(object):
             vis_output (VisImage): the visualized image output.
         """
         vis_output = None
-        for i in range(20):
+        for i in range(1):
             start_time = time.time()
             predictions = self.predictor(image)
             print(time.time() - start_time)   
